@@ -1,83 +1,196 @@
 import logo from './assets/koruvaris.jpeg';
 import bg from './assets/bg.jpeg';
+import img1 from './assets/gallery/1.jpg';
+import img2 from './assets/gallery/2.jpg';
+import img3 from './assets/gallery/3.jpg';
+import img4 from './assets/gallery/4.jpg';
+import img5 from './assets/gallery/5.jpg';
+import img6 from './assets/gallery/6.jpeg';
+import profile from './assets/profile.jpeg';
 import './App.css';
+import useScreenOrientation from './hooks/useOrientation';
+import Instagram from './components/Insta';
+import { useState } from 'react';
+import MobileNav from './components/MobileNav';
 
 function App() {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+  useScreenOrientation();
   return (
-    <main
-      className="bg-cover bg-center h-screen flex"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
-      <div className="px-10 flex flex-col mx-auto text-center items-center justify-center gap-6">
-        <div className="logo justify-self-center">
-          <img src={logo} alt="Koruvaris logo" />
-        </div>
-        <h2 className="font-mono text-lg md:text-xl text-gray-800">
-          Verkkokauppa avataan pian
-        </h2>
-        <a
-          href="mailto:koruvaris@gmail.com"
-          className="font-mono text-gray-500 hover:text-black"
-        >
-          koruvaris@gmail.com
-        </a>
-        <a href="https://instagram.com/koruvaris">
-          <svg
-            className="h-10 w-10"
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="100"
-            height="100"
-            viewBox="0 0 48 48"
+    <div className="flex flex-col items-center justify-center text-center font-mono scroll-smooth">
+      <div
+        className="bg-cover bg-center min-h-screen flex flex-col w-full text-center"
+        style={{ backgroundImage: `url(${bg})` }}
+      >
+        <div className="self-end m-2 z-30">
+          <button
+            className="sm:hidden bg-transparent p-1 hover:border-transparent focus:outline-none"
+            onClick={() => setIsMobileNavOpen((isOpen) => !isOpen)}
           >
-            <radialGradient
-              id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1"
-              cx="19.38"
-              cy="42.035"
-              r="44.899"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0" stop-color="#fd5"></stop>
-              <stop offset=".328" stop-color="#ff543f"></stop>
-              <stop offset=".348" stop-color="#fc5245"></stop>
-              <stop offset=".504" stop-color="#e64771"></stop>
-              <stop offset=".643" stop-color="#d53e91"></stop>
-              <stop offset=".761" stop-color="#cc39a4"></stop>
-              <stop offset=".841" stop-color="#c837ab"></stop>
-            </radialGradient>
-            <path
-              fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)"
-              d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"
-            ></path>
-            <radialGradient
-              id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2"
-              cx="11.786"
-              cy="5.54"
-              r="29.813"
-              gradientTransform="matrix(1 0 0 .6663 0 1.849)"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0" stop-color="#4168c9"></stop>
-              <stop offset=".999" stop-color="#4168c9" stop-opacity="0"></stop>
-            </radialGradient>
-            <path
-              fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)"
-              d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"
-            ></path>
-            <path
-              fill="#fff"
-              d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"
-            ></path>
-            <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle>
-            <path
-              fill="#fff"
-              d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"
-            ></path>
-          </svg>
-        </a>
+            {isMobileNavOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1"
+                stroke="currentColor"
+                className="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1"
+                stroke="currentColor"
+                className="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+        {isMobileNavOpen && (
+          <MobileNav hide={() => setIsMobileNavOpen(false)} />
+        )}
+        <nav className="hidden sm:flex gap-10 self-center mt-10 z-20">
+          <a
+            href="#esittely"
+            className="text-gray-700 hover:text-black p-2 border border-transparent hover:border-black"
+          >
+            Esittely
+          </a>
+          <a
+            href="#kuvat"
+            className="text-gray-700 hover:text-black p-2 border border-transparent hover:border-black"
+          >
+            Kuvat
+          </a>
+          <a
+            href="#ota-yhteytta"
+            className="text-gray-700 hover:text-black p-2 border border-transparent hover:border-black"
+          >
+            Ota yhteyttä
+          </a>
+          {/* <a className="text-gray-700 hover:text-black p-2 border border-transparent hover:border-black">
+            Verkkokauppa
+          </a> */}
+        </nav>
+        <div className="px-10 py-10 flex flex-col flex-grow items-center justify-center gap-6 justify-self-center">
+          <div
+            className="logo justify-self-center px-5"
+            style={{ maxWidth: 'min(25rem, var(--logo-width))' }}
+          >
+            <img src={logo} alt="Koruvaris logo" />
+          </div>
+          <h2 className="font-mono text-lg md:text-xl text-gray-800">
+            Verkkokauppa avataan pian
+          </h2>
+          <a
+            href="mailto:koruvaris@gmail.com"
+            className="font-mono text-gray-500 hover:text-black"
+          >
+            koruvaris@gmail.com
+          </a>
+          <div className="">
+            <Instagram />
+          </div>
+        </div>
+
+        <div className="basis-24">
+          <div id="scroll-down" className="scroll-smooth">
+            <a href="#esittely">
+              <span />
+              <span />
+              <span />
+            </a>
+          </div>
+        </div>
       </div>
-    </main>
+      <main
+        id="esittely"
+        className="max-w-2xl p-10 gap-6 flex flex-col items-center scroll-smooth"
+      >
+        <h1 className="text-xl text-gray-800 mt-10">Koruvaris</h1>
+        {/* <hr className="h-px bg-gray-700 border-0 w-full" /> */}
+        <p>
+          Tervehdys! Koruvaris kiittää, että olet eksynyt sivuilleni ja olet
+          ehkä aikeissasi ostaa itsellesi tai läheisellesi iloksi suomalaista
+          käsityötä.
+        </p>
+
+        <p>
+          Korut tämä Varis valmistaa kotoa käsin Espoossa pienessä pajassaan
+          (eli keittiössä) illan hiljaisina tunteinta pikkulasten mentyä
+          nukkumaan.
+        </p>
+        <p>
+          Korut ovat tehty pääsääntöisesti polymeerisavesta, johon tykkään
+          yhdistellä kimallusta lehtikullalla/hopealla ja viimeisenä silauksena
+          lisätä helmiä. Massat sekoitan itse, joten jokainen korupari on
+          uniikki. Teräososina käytän koruissa kirurginterästä, joka takaa korun
+          kestävyyden ja ne sopivat myös allergisille.
+        </p>
+        <p>
+          Tarkoitus näillä helyillä on tuoda iloa sinulle, kuten ne tuovat
+          minullekin niitä valmistaessani/tehdessäni ja nähdessäni valmiit
+          kaunokaiset. Eli anna mennä ja nauti korujen tuomasta piristyksestä!
+        </p>
+        <div className="w-52 md:w-60 px-4">
+          <img
+            src={profile}
+            alt="Henkilökuva"
+            className="shadow rounded-full max-w-full h-auto align-middle border-none"
+          />
+        </div>
+        <p className="flex gap-6">
+          <span className="self-center">- Elisa</span>
+        </p>
+
+        <hr id="kuvat" className="h-px my-8 bg-gray-700 border-0 w-full" />
+        {/* <hr className="h-px my-8 bg-gray-700 border-0 w-full" /> */}
+        <div className="grid grid-cols-2 gap-4 sm:gap-10">
+          <img className="aspect-square object-cover" src={img1}></img>
+          <img className="aspect-square object-cover" src={img2}></img>
+          <img className="aspect-square object-cover" src={img3}></img>
+          <img className="aspect-square object-cover" src={img4}></img>
+          <img className="aspect-square object-cover" src={img5}></img>
+          <img className="aspect-square object-cover" src={img6}></img>
+        </div>
+        {/* <hr className="h-px my-12 bg-gray-700 border-0 w-full" /> */}
+        <div
+          id="ota-yhteytta"
+          className="flex flex-col items-center pb-10 mt-16"
+        >
+          <h2 className="text-xl mb-10">Ota yhteyttä</h2>
+          <p>Koruvaris</p>
+          <a href="tel:0503437824" className=" text-black hover:text-gray-500">
+            050 343 7824
+          </a>
+          <a
+            href="mailto:koruvaris@gmail.com"
+            className=" text-black hover:text-gray-500"
+          >
+            koruvaris@gmail.com
+          </a>
+          <p className="text-sm mt-10">Y-tunnus: 3398198-4</p>
+          <div className="mt-10">
+            <Instagram />
+          </div>
+        </div>
+      </main>
+    </div>
   );
 }
 

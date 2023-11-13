@@ -1,4 +1,7 @@
 @tailwind base;
+html {
+  scroll-behavior: smooth;
+}
 @tailwind components;
 @tailwind utilities;
 
@@ -10,7 +13,7 @@
   color-scheme: light dark;
   color: rgba(13, 9, 9, 0.87);
   /* background-color: #242424; */
-  background-color: #faf9fa;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,10 +32,9 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   /* display: flex;
   place-items: center; */
-  min-width: 150px;
 }
 
 h1 {
@@ -71,3 +73,62 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+#scroll-down {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+#scroll-down a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1.2px solid black;
+  border-bottom: 1.2px solid black;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb07 2s infinite;
+  animation: sdb07 2s infinite;
+  opacity: 0;
+  box-sizing: border-box;
+}
+#scroll-down a span:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+#scroll-down a span:nth-of-type(2) {
+  top: 16px;
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+#scroll-down a span:nth-of-type(3) {
+  top: 32px;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+@-webkit-keyframes sdb07 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb07 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
