@@ -21,7 +21,10 @@ function App() {
     <div className="flex flex-col items-center justify-center text-center font-mono scroll-smooth">
       <div
         className="bg-cover bg-center flex flex-col w-full text-center relative"
-        style={{ backgroundImage: `url(${bg})`, minHeight: '100dvh' }}
+        style={{
+          backgroundImage: `url(${bg})`,
+          minHeight: 'var(--inner-heigth)',
+        }}
       >
         <div className="self-end m-2 z-30">
           <button

@@ -7,10 +7,8 @@ const useScreenOrientation = () => {
 
   const updateOrientation = () => {
     const currentOrientation = getOrientation();
-    console.log(currentOrientation);
     setOrientation(currentOrientation);
     if (currentOrientation.startsWith('landscape')) {
-      console.log(window.innerHeight);
       document.documentElement.style.setProperty(
         '--logo-width',
         `${window.innerHeight / 2}px`
