@@ -142,7 +142,7 @@ function App() {
           Korut ovat tehty pääsääntöisesti polymeerisavesta, johon tykkään
           yhdistellä kimallusta lehtikullalla/hopealla ja viimeisenä silauksena
           lisätä helmiä. Massat sekoitan itse, joten jokainen korupari on
-          uniikki. Teräososina käytän koruissa kirurginterästä, joka takaa korun
+          uniikki. Teräosina käytän koruissa kirurginterästä, joka takaa korun
           kestävyyden ja ne sopivat myös allergisille.
         </p>
         <p>
