@@ -1,5 +1,5 @@
 import logo from './assets/koruvaris.jpeg';
-import bg from './assets/bg.jpeg';
+import bg from './assets/opa.jpeg';
 import img1 from './assets/gallery/1.jpg';
 import img2 from './assets/gallery/2.jpg';
 import img3 from './assets/gallery/3.jpg';
